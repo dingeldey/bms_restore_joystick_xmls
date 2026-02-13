@@ -1,8 +1,6 @@
-# bms_restore_joystick_xmls
+# restore_joystick_xmls
 
-A small Python utility to protect and automatically restore **Falcon BMS** joystick bindings when Windows changes USB device GUIDs.
-
-The tool creates timestamped ZIP snapshots of the full BMS config folder and restores known-good assignment content into newly generated config files while keeping their new filenames and GUIDs.
+A small Python utility to protect and automatically restore **Falcon BMS** adn **DCS** joystick bindings when Windows changes USB device GUIDs.
 
 ---
 

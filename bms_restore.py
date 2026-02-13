@@ -192,6 +192,15 @@ def default_ini_path(filename: str) -> Path:
     # Normal python run
     return Path(__file__).with_name(filename)
 
+def pause_exit() -> None:
+    print("")
+    print("Press any key to continue...")
+    try:
+        import msvcrt
+        msvcrt.getch()
+    except Exception:
+        input()
+
 def main() -> int:
     # Expect config.ini next to the script, unless user passes a path
     config_path = default_ini_path("bmsconfig.ini")
@@ -211,7 +220,7 @@ def main() -> int:
 
     # Step 2: restore from backups (content replacement keeping new filename/GUID)
     restore_from_backups(settings)
-
+    pause_exit()
     return 0
 
 

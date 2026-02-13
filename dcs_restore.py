@@ -238,6 +238,14 @@ def restore_dcs(settings: Settings) -> None:
     if settings.copy_if_missing:
         print(f"  Copied missing:              {copied_missing}")
 
+def pause_exit() -> None:
+    print("")
+    print("Press any key to continue...")
+    try:
+        import msvcrt
+        msvcrt.getch()
+    except Exception:
+        input()
 
 def default_ini_path(filename: str) -> Path:
     # When frozen (PyInstaller), sys.executable is the .exe path
@@ -259,6 +267,7 @@ def main() -> int:
 
     # Step 2: restore
     restore_dcs(settings)
+    pause_exit()
     return 0
 
 
